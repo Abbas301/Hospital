@@ -1,0 +1,29 @@
+
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+
+<div class="container mt-5 col-5 shadow">
+    <h1 class="text-center">Register Patients!!!</h1>
+     <form action="" #adddetails="ngForm" (ngSubmit)="onSubmit(adddetails)">
+        <div class="form-group">
+            <label for="" class="form-label">sample Date</label>
+            <input type="datetime-local" id="date" class="form-control" #date ngModel name="date" >
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Patient Name</label>
+            <input type="text" id="patientName" class="form-control" #patientName ngModel name="patientName" >
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">Email Id</label>
+            <input type="text" id="email" class="form-control" #email ngModel name="email" >
+        </div>
+        <div class="form-group">
+            <label for="" class="form-label">sample Id</label>
+            <input type="text" id="id" class="form-control" #id ngModel name="id" >
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success mt-3">submit</button>
+        </div>
+     </form>
+</div>
+
+

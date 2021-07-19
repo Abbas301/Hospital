@@ -1,0 +1,99 @@
+<div class="container mt-5">
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Sample Date</th>
+        <th>Patient Name</th>
+        <th>Email Id</th>
+        <th>Sample Id</th>
+        <th> Hematology</th>
+        <th>Glucometry </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of details">
+        <td>{{detail.date}}</td>
+        <td>{{detail.patientName}}</td>
+        <td>{{detail.email}}</td>
+        <td>{{detail.id}}</td>
+        <td><button *ngIf="detail.hematology == 'false'" class="btn btn-light">NA</button>
+          <button type="button" *ngIf="detail.hematology == 'true'" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">add report</button>
+        </td>
+        <td><button *ngIf="detail.glucometry == 'false'" class="btn btn-light">NA</button>
+          <button type="button" *ngIf="detail.glucometry == 'true'" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModals">add report</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Add Hematology Report</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" #adddetails="ngForm" (ngSubmit)="onSubmit(adddetails)">
+          <div class="form-group">
+            <label for="" class="form-label">Gender</label>
+            <input type="text" id="gender" class="form-control" #gender ngModel name="gender">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">Patient Name</label>
+            <input type="text" id="patientName" class="form-control" #patientName ngModel name="patientName">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">BP</label>
+            <input type="text" id="bp" class="form-control" #bp ngModel name="bp">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">Hemoglobin</label>
+            <input type="text" id="hemoglobin" class="form-control" #hemoglobin ngModel name="hemoglobin">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary mt-3">submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Add Glucometry Report</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" #adddetails="ngForm" >
+          <div class="form-group">
+            <label for="" class="form-label">glucocard</label>
+            <input type="text" id="glucocard" class="form-control" #glucocard ngModel name="glucocard">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">Patient Name</label>
+            <input type="text" id="patientName" class="form-control" #patientName ngModel name="patientName">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">glucometer</label>
+            <input type="text" id="glucometer" class="form-control" #glucometer ngModel name="glucometer">
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label">glucose</label>
+            <input type="text" id="glucose" class="form-control" #glucose ngModel name="glucose">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary mt-3" (click)="onClick(adddetails)">submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

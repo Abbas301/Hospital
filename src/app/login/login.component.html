@@ -1,0 +1,42 @@
+
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-5">
+    <form action="" [formGroup]="sform" (ngSubmit)="onSubmit(sform)">
+        <div class="card">
+            <h3 class="card-header text-center">Please login!!!</h3>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="" class="form-label">Email</label>
+                        <input type="text" id="email" class="form-control" formControlName="email" >
+                    </div>
+                    <div *ngIf="email.errors && email.touched" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">The email is compulsary</div>
+                        <div *ngIf="email.errors.minlength">min length is 5 characters</div>
+                        <div *ngIf="email.errors.pattern">Use atleast 5 letters and must match the email pattern</div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="" class="form-label">Password</label>
+                        <input type="text" id="password" class="form-control" formControlName="password" >
+                    </div>
+                    <div *ngIf="psw.errors && psw.touched" class="alert alert-danger">
+                        <div *ngIf="psw.errors.required">The password is compulsary</div>
+                        <div *ngIf="psw.errors.minlength">Atleast 5 characters</div>
+                        <div *ngIf="psw.errors.pattern">password should be 0-9</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                   <select name="role" id="role" class="form-control">
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                   </select>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success px-5" type="submit" [disabled]= "sform.invalid">Login</button>
+                    <button class="btn btn-secondary px-5 mx-5" type="reset">Reset</button>
+                </div>
+        </div>
+    </form>
+</div>

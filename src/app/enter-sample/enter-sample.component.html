@@ -1,0 +1,21 @@
+<div class=" container col-4 mt-5 shadow">
+  <h1 class="text-center">Create Test</h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>search patient</mat-label>
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto" [(ngModel)]="selected">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div><input type="checkbox" [(ngModel)]="hematology"> Hematology</div>
+  <div><input type="checkbox" [(ngModel)]="glucometry"> Glucometry</div>
+  <div>
+    <button type="submit" class="btn btn-primary mt-2 gap" (click)="getInfo()">submit</button>
+  </div>
+  <div class="align mt-3"></div>
+</div>

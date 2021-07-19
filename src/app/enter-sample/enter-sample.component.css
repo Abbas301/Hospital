@@ -1,0 +1,28 @@
+
+.align
+{
+    border-bottom: 1px solid black;
+}
+.gap
+{
+    margin-left: 350px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  
+.shadow{
+  border: 1px solid grey;
+  padding: 25px;
+  border-radius: 20px;
+  background-color:lightblue;
+}
+  
